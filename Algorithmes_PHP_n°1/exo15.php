@@ -18,6 +18,9 @@ class Personne {
         $this->_prenom = $prenom;
         $this->_dateNaissance = $dateNaissance;
     }
+    public function __toString() {
+        return ($this->getPrenom())." ".($this->getNom())." a ".($this->getAge())." ans";
+    }
     public function getNom() {
         return $this->_nom;
     }
@@ -40,9 +43,9 @@ class Personne {
 
 $p1 = new Personne("DUPONT","Michel","1980-02-19");
 
-echo ($p1->getPrenom())." ".($p1->getNom())." a ".($p1->getAge())." ans";
+echo $p1 ;
 
 $p2 = new Personne("DUCHEMIN","Alice","1985-01-17");
 
-echo "</br>".($p2->getPrenom())." ".($p2->getNom())." a ".($p2->getAge())." ans";
+echo "</br>".$p2;
 
