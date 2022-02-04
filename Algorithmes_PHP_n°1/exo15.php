@@ -16,7 +16,7 @@ class Personne {
     function __construct($nom, $prenom, $dateNaissance) {
         $this->_nom = $nom;
         $this->_prenom = $prenom;
-        $this->_dateNaissance = $dateNaissance;
+        $this->_dateNaissance = new DateTime($dateNaissance);
     }
     public function __toString() {
         return ($this->getPrenom())." ".($this->getNom())." a ".($this->getAge())." ans";
@@ -31,7 +31,7 @@ class Personne {
         return $this->_dateNaissance;
     }
     public function getAge() {
-        $dateBirth = new DateTime($this->_dateNaissance);
+        $dateBirth = $this->_dateNaissance;
         $dateToday = new DateTime();
         $age=date_diff($dateToday,$dateBirth);
         return ($age->y);

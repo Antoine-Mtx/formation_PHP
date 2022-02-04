@@ -11,12 +11,14 @@ for ($i=1; $i <=10 ; $i++) {
     array_push($notes, random_int(0,20)); //array_push s'applique directement à la variable
 }
 
-echo "Les notes obtenues par l'élève sont : ";
+var_dump($notes);
 
-$sommeNotes=0;
-foreach ($notes as $note) {
-    echo "$note ";
-    $sommeNotes += $note; 
-}
+echo "Les notes obtenues par l'élève sont : ".implode(" ",$notes);
 
-echo "</br>Sa moyenne générale est donc de : ".round(($sommeNotes/count($notes)),2);
+// $sommeNotes=0;
+// foreach ($notes as $note) {
+//     // echo "$note ";
+//     $sommeNotes += $note; 
+// }
+
+echo "</br>Sa moyenne générale est donc de : ".round((array_sum($notes)/count($notes)),2);
