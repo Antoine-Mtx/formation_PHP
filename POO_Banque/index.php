@@ -1,7 +1,5 @@
 <?php
 
-var_dump($this);
-
 require "Titulaire.php";
 require "CompteBancaire.php";
 
