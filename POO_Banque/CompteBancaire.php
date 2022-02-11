@@ -27,7 +27,11 @@ class CompteBancaire {
         $this->_solde -= $montant; 
     }
     public function virer(float $montant,CompteBancaire $compteBeneficiaire) {
-        $this->debiter($montant);
-        $compteBeneficiaire->crediter($montant);
+        if ($montant <= $this->_solde) {
+            $this->debiter($montant);
+            $compteBeneficiaire->crediter($montant);
+        } else {
+            echo "<p>« Virement impossible, le montant excède le solde de votre compte bancaire envoyeur »</p>";
+        }
     }
 }
