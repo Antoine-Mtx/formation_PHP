@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 1024px;
+    margin:auto;
+}
+#plateau{
+    max-width: 1024px;
+    margin:auto;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+    display: grid;
+    grid-template-columns: repeat(8, 128px);
+    grid-template-rows: repeat(8, 128px);
+}
+.case{
+    border: 1px solid black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.noire{
+    background-color: grey;
+}
+.blanche{
+    background-color: white;
+}
+p{
+    font-size: 5em;
+}
