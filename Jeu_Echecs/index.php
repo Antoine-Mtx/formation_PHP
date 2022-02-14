@@ -19,17 +19,17 @@
                 for ($r=1; $r<=8 ; $r+=1) {
                     for ($c=1; $c<=8 ; $c+=1) {
                         if (($c+$r)%2==0 && $r<=2) {
-                            echo "<div class='case blanche R".$r." C".$c."'><p>".$jeu_pieces_blanc[$i]." NOIR</p></div>";
+                            echo "<div class='case blanche R".(9-$r)." C".$c."'><p>".$jeu_pieces_blanc[$i]." NOIR</p></div>";
                         } else if (($c+$r)%2==1 && $r<=2) {
-                            echo "<div class='case noire'><p>".$jeu_pieces_blanc[$i]." NOIR</p></div>";
+                            echo "<div class='case noire R".(9-$r)." C".$c."'><p>".$jeu_pieces_blanc[$i]." NOIR</p></div>";
                         } else if (($c+$r)%2==0 && $r>1 && $r<7) {
-                            echo "<div class='case blanche'></div>";
+                            echo "<div class='case blanche R".(9-$r)." C".$c."'></div>";
                         } else if (($c+$r)%2==1 && $r>1 && $r<7) {
-                            echo "<div class='case noire'></div>";
+                            echo "<div class='case noire R".(9-$r)." C".$c."'></div>";
                         } else if (($c+$r)%2==0 && $r>=7) {
-                            echo "<div class='case blanche'><p class='piece'>".$jeu_pieces_noir[$nb_pieces-$i-1]." BLANC</p></div>";
+                            echo "<div class='case blanche R".(9-$r)." C".$c."'><p class='piece'>".$jeu_pieces_noir[$nb_pieces-$i-1]." BLANC</p></div>";
                         } else {
-                            echo "<div class='case noire'><p>".$jeu_pieces_noir[$nb_pieces-$i-1]." BLANC</p></div>";
+                            echo "<div class='case noire R".(9-$r)." C".$c."'><p>".$jeu_pieces_noir[$nb_pieces-$i-1]." BLANC</p></div>";
                         }
                         $i=($i+1)%$nb_pieces;
                     }
