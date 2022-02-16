@@ -16,14 +16,15 @@ class Realisateur extends Personne {
         $this->_filmographie []= $nouveauFilm;
     }
 
-    public function afficherFilmographie() {
+    public function FilmographieToDisplay() {
         if (count($this->_filmographie)==0) {
-            echo "<p>Aucun film repertorié pour ce réalisateur</p>";
+            $toDisplay .= "<p>Aucun film repertorié pour ce réalisateur</p>";
         } else
-        echo "Filmographie de ".$this->getPrenom()." ".$this->getNom()." :<ul>";
+        $toDisplay .= "Filmographie de ".$this->getPrenom()." ".$this->getNom()." :<ul>";
         foreach ($this->_filmographie as $film) {
-            echo "<li>".$film->getTitre()."</li>";
+            $toDisplay .= "<li>".$film->getTitre()."</li>";
         }
-        echo "</ul>";
+        $toDisplay .= "</ul>";
+        return $toDisplay;
     }
 }

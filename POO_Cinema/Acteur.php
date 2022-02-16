@@ -25,14 +25,16 @@ class Acteur extends Personne {
         }
     }
 
-    public function afficherFilmographie() {
+    public function FilmographieToDisplay() {
+        $toDisplay = "";
         if (count($this->_filmographie)==0) {
-            echo "<p>Aucun film repertorié pour cet acteur</p>";
+            $toDisplay .= "<p>Aucun film repertorié pour cet acteur</p>";
         } else
-        echo "Films dans les lesquels apparaît ".$this." :<ul>";
+        $toDisplay .= "Films dans les lesquels apparaît ".$this." :<ul>";
         foreach ($this->_filmographie as $film) {
-            echo "<li>".$film->_titre."</li>";
+            $toDisplay .= "<li>".$film->_titre."</li>";
         }
-        echo "</ul>";
+        $toDisplay .= "</ul>";
+        return $toDisplay;
     }
 }

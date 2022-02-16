@@ -7,24 +7,19 @@ class Film {
     private Genre $_genre;
     private string $_synopsis;
     private Realisateur $_realisateur;
-    private array $_listeActeurs;
+    private Casting $casting;
 
 
-    function __construct(string $titre,int $duree, $dateSortie, Genre $genre,string $synopsis, Realisateur $realisateur, array $listeActeurs){
+    function __construct(string $titre,int $duree, $dateSortie, Genre $genre,string $synopsis, Realisateur $realisateur, array $distributionRoles){
         $this->_titre = $titre;
         $this->_duree = $duree;
         $this->_dateSortie = new DateTime($dateSortie);
         $this->_genre = $genre;
         $this->_synopsis = $synopsis;
         $this->_realisateur = $realisateur;
-        $this->_listeActeurs = $listeActeurs;
+        $this->_casting = new Casting($this, $distributionRoles);
         if (! in_array($this, $realisateur->getFilmographie())) {
             $realisateur->ajouterFilm($this);
-        }
-        foreach ($this->_listeActeurs as $acteur) {
-            if (! in_array($this, $acteur->getFilmographie())) {
-                $acteur->ajouterFilm($this);
-            }
         }
     }
 
@@ -50,17 +45,12 @@ class Film {
     public function getRealisateur() {
         return $this->_realisateur;
     }
-    public function afficherCasting() {
-        echo "<p>Casting du film ".$this." :</p>
-            <ul>";
-                foreach ($this->_listeActeurs as $personnage => $acteur) {
-                    echo "<li>".$personnage." interprêté par ".$acteur."</li>";
-                }
-            echo "</ul>";
+    public function getCasting() {
+        return $this->_casting;
 
     }
-    public function afficherInfos() {
-        echo "<p>Informations sur le film :</p>
+    public function getInfos() {
+        return "<p>Informations sur le film :</p>
                 <ul>
                     <li> Titre : ".$this->_titre."</li>
                     <li> Durée : ".convertirDuree($this->_duree)."</li>
@@ -68,11 +58,7 @@ class Film {
                     <li> Genre : ".($this->_genre)->getNomGenre()."</li>
                     <li> Synopsis : ".$this->_synopsis."</li>
                     <li> Réalisateur : ".$this->_realisateur."</li>
-                    <li> Rôles : ";
-                        foreach ($this->_listeActeurs as $personnage => $acteur) {
-                            echo $personnage." interprêté par ".$acteur." / ";
-                        }
-                    echo "</li>
+                    <li>".$this->_casting."</li>
                 </ul>";
     }
 }

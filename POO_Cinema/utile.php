@@ -8,5 +8,3 @@ function convertirDuree($duree) {
         return ($duree%60)." min";
     }
 }
-
-echo convertirDuree(256);
