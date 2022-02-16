@@ -23,7 +23,7 @@ $RO1a = new Role("Handsome Bob",$A1a);
 $RO1b = new Role("Lenny",$A1b);
 $F1 = new Film("RocknRolla",104,"2008-11-19",$G1,"Caïd londonien, Lenny travaille à l'ancienne. Ce qui ne l'empêche pas de savoir à qui graisser la patte et de pouvoir faire pression sur n'importe quel ministre, promoteur immobilier ou malfrat en vue. D'un simple coup de fil, Lenny est capable de soulever des montagnes. Mais comme le lui dit Archy, son fidèle lieutenant, Londres est en train de changer : les mafieux des pays de l'Est, comme les petits voyous, cherchent tous à bouleverser les règles du milieu. Désormais, c'est toute la pègre londonienne, des gros bonnets aux petits poissons, qui tente de se remplir les poches en se disputant le coup du siècle. Mais c'est Johnny Quid, rock star toxico qu'on croyait mort, qui a les cartes bien en main...",$RE1,[[$A1a,$RO1a],[$A1b,$RO1b]]);
 
-echo $F1->getInfos();
+echo $F1->infosToDisplay();
 
 $G2 = new Genre("Fantastique");
 

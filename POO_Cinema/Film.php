@@ -49,7 +49,7 @@ class Film {
         return $this->_casting;
 
     }
-    public function getInfos() {
+    public function infosToDisplay() {
         return "<p>Informations sur le film :</p>
                 <ul>
                     <li> Titre : ".$this->_titre."</li>
