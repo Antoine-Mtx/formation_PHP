@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 860px;
+    margin:auto;
+}
+
+span{
+    color: red;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+img {
+    width: 12em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form>input {
+    width: 20em;
+}
+
+.exo {
+    padding: 0.2em 0.5em;
+    font-weight: bold;
+    border: 2px double lightslategray;
+}
